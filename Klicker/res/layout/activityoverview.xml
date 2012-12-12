@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00CC88"
+    android:orientation="vertical" >
+
+    <SlidingDrawer
+        android:id="@+id/slidingDrawer1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:content="@+id/contentActOver"
+        android:handle="@+id/btActOverHandle" >
+
+        <Button
+            android:id="@+id/btActOverHandle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create New One" />
+
+        <LinearLayout
+            android:id="@+id/contentActOver"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#CC0088"
+                android:orientation="vertical"
+                android:padding="10dp" >
+
+                <EditText
+                    android:hint="Definition"
+                    android:id="@+id/etActOverActivityDefinition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10" >
+                </EditText>
+                
+                <EditText
+                    android:hint="Duration"
+                    android:id="@+id/etActOverActivityDuration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10" >
+                </EditText>
+                
+                <EditText
+                    android:hint="Subunits"
+                    android:id="@+id/etActOverActivitySubUnits"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10" >
+                </EditText>
+                
+            </LinearLayout>
+        </LinearLayout>
+    </SlidingDrawer>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center" >
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
