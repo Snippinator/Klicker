@@ -50,7 +50,7 @@ public class Splash extends Activity{
 					Intent openStartingPoint = new Intent("alexandru.ciocea.");
 					startActivity(openStartingPoint);
 				*/
-					startActivity(myFramework.switchView(Splash.this, "Login"));
+					startActivity(myFramework.switchView(Splash.this, "ActivityOverview"));
 				}
 			}
 		};		

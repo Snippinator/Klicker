@@ -2,11 +2,12 @@ package alexandru.ciocea;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.SlidingDrawer;
 import android.widget.SlidingDrawer.OnDrawerCloseListener;
 
@@ -18,15 +19,14 @@ public class ActivityOverview extends Activity implements OnClickListener, OnDra
 	MyFramework myFramework = null;
 	FontClass fontClass = null;
 	UserInformation userInfo;
+	ViewGroup linearLayout;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activityoverview);
-		
 		initVars();
-		
 		
 	}
 	
@@ -35,6 +35,9 @@ public class ActivityOverview extends Activity implements OnClickListener, OnDra
 		fontClass = new FontClass();
 		myFramework = new MyFramework();
 		userInfo = userInfo.getInstance();
+		userInfo.setUserId("10");
+		
+		linearLayout = (ViewGroup) findViewById(R.id.llActOver);
 		
 		activityDefinition = (EditText) findViewById(R.id.etActOverActivityDefinition);
 		fontClass.setFont(activityDefinition);
@@ -47,21 +50,29 @@ public class ActivityOverview extends Activity implements OnClickListener, OnDra
 		slideDrawer = (SlidingDrawer) findViewById(R.id.slidingDrawer1);
 		slideDrawer.setOnDrawerCloseListener(this);
 		
+		createActivities();
+		
+	}
+
+	private void createActivities() {
+		ActivityDB entry = new ActivityDB(ActivityOverview.this);
+		entry.open();
+		entry.getActivities(userInfo.getUserId(), this.linearLayout, this);
+		entry.close();
+		
+		/*
+		 * getactivities
+		 * create button for each activity
+		 */
+		
 	}
 
 	public void onClick(View v) {
 		
-		/*
-		 *call dialog window to define activity in detail view
-		 *pass through the activity definition 
-		 *after defining the activity create a new button for 
-		 *this activity and put it at the beginning of the list.
-		 *Activities should be sorted in order of timestamp 
-		 */
 		switch(v.getId()){
 		
 		case R.id.btActOverHandle:
-			
+		
 			break;
 		}
 	}
@@ -75,13 +86,21 @@ public class ActivityOverview extends Activity implements OnClickListener, OnDra
 		
 		if(!definition.equals("") && !duration.equals("")){
 			ActivityDB entry = new ActivityDB(ActivityOverview.this);
+			
 			entry.open();
+			//entry.update();
 			entry.saveActivity(userInfo.getUserId(), definition, duration, subunits);
 			entry.close();
 			
 			activityDefinition.setText("");
 			activityDuration.setText("");
 			activitySubUnits.setText("");
+			
+			createActivities();
+			
+		}else{
+			
+			myFramework.createDialogNeutral(ActivityOverview.this, "Obacht", "Sie haben entweder die Bezeichnung oder die Dauer der Aktivit&auml;t vergessen anzugeben.");
 		}
 		
 	}

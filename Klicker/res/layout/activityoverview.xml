@@ -3,12 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00CC88"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:weightSum="4" >
 
+
+	<RelativeLayout 
+	    android:id="@+id/llActOver"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="2">
+	    
+	   
+	</RelativeLayout>
     <SlidingDrawer
         android:id="@+id/slidingDrawer1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+		android:layout_height="fill_parent"
+        android:layout_weight="2"
         android:content="@+id/contentActOver"
         android:handle="@+id/btActOverHandle" >
 
@@ -26,47 +37,35 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#CC0088"
+                android:background="#AA88BB"
                 android:orientation="vertical"
                 android:padding="10dp" >
 
                 <EditText
-                    android:hint="Definition"
                     android:id="@+id/etActOverActivityDefinition"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10" >
+                    android:ems="10"
+                    android:hint="Definition" >
                 </EditText>
-                
+
                 <EditText
-                    android:hint="Duration"
                     android:id="@+id/etActOverActivityDuration"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10" >
+                    android:ems="10"
+                    android:hint="Duration" >
                 </EditText>
-                
+
                 <EditText
-                    android:hint="Subunits"
                     android:id="@+id/etActOverActivitySubUnits"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10" >
+                    android:ems="10"
+                    android:hint="Subunits" >
                 </EditText>
-                
             </LinearLayout>
         </LinearLayout>
     </SlidingDrawer>
-
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:gravity="center" >
-        </LinearLayout>
-    </ScrollView>
 
 </LinearLayout>

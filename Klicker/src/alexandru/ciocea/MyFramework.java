@@ -5,13 +5,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 public class MyFramework extends Activity{
@@ -20,6 +18,13 @@ public class MyFramework extends Activity{
 		
 	}
 	
+	public void closeKeyboard(TextView tv){
+		
+		InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		inputManager.hideSoftInputFromWindow(tv.getWindowToken(), 0);
+	}
+	
+
 	public void createDialogNeutral(Context c, String title, String message){
 		
 		Dialog dialog = new Dialog(c);
@@ -44,8 +49,7 @@ public class MyFramework extends Activity{
 			Log.e("GET SOME SLEEP", ""  +e);
 		}
 	}
-	
-	
+		
 	public byte[] hashPassword(String stringToHash){
 		MessageDigest mDigest = null;
 		
@@ -79,6 +83,5 @@ public class MyFramework extends Activity{
 	}
 	
 	
-
-
+	
 }
