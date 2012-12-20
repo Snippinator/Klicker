@@ -1,13 +1,18 @@
 package alexandru.ciocea;
 
+import alexandru.ciocea.R.layout;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.RelativeLayout;
 
 public class ActivityDB {
 
@@ -40,6 +45,9 @@ public class ActivityDB {
 	private DBHelper ourHelper;
 	private final Context ourContext;
 	private SQLiteDatabase ourDatabase;
+	MyFramework myFramework = new MyFramework();
+	FontClass fontClass = new FontClass();
+	UserInformation userInfo = UserInformation.getInstance();
 
 	public static class DBHelper extends SQLiteOpenHelper {
 
@@ -98,6 +106,9 @@ public class ActivityDB {
 		return this;
 	}
 
+	/*
+	 * drop all tables inside the database
+	 */
 	private void dropTables(SQLiteDatabase db) {
 
 		String deleteTable1 = "DROP TABLE IF EXISTS " + DATABASE_TABLE1;
@@ -112,6 +123,9 @@ public class ActivityDB {
 		ourHelper.close();
 	}
 
+	/*
+	 * create a new user and save parameters
+	 */
 	public void saveUser(String username, byte[] hashedPassword, String email) {
 		// insert new user into database
 		ContentValues cValues = new ContentValues();
@@ -121,6 +135,9 @@ public class ActivityDB {
 		ourDatabase.insert(DATABASE_TABLE1, null, cValues);
 	}
 
+	/*
+	 * save activity with parameters the user set inside ActivityOverview form
+	 */
 	public void saveActivity(String string, String definition, String duration,
 			String subunits) {
 
@@ -133,26 +150,70 @@ public class ActivityDB {
 
 	}
 
-	public void getActivities(String string, ViewGroup linerLayout,
+	/*
+	 * get all activities from database and create for each entry a button
+	 */
+	public void getActivities(String string, ViewGroup linearLayout,
 			Context context) {
 
-		String[] columns = new String[] { KEY_DEFINITION };
-		Cursor c = ourDatabase.query(DATABASE_TABLE2, columns, string, null,
+		int rowCount = 0;
+		int lastButtonId = 0;
+		String[] columns = new String[] { KEY_DEFINITION, KEY_ACTIVITYID };
+		Cursor c = ourDatabase.query(DATABASE_TABLE2, columns, "userIdForeign=" + string, null,
 				null, null, null);
+
+		int iDef = c.getColumnIndex(KEY_DEFINITION);
+		int iActID = c.getColumnIndex(KEY_ACTIVITYID);
+
+		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+
+			Button bt = new Button(context);
+			bt.setText(c.getString(iDef));
+			fontClass.setFont(bt);
+
+			bt.setOnClickListener(new MyOnClickListener(context, c
+					.getString(iActID)));
+
+			// add button to layout
+			linearLayout.addView(bt);
+		}
+	}
+
+	/*
+	 * set execution when activity button has been pressed
+	 */
+	protected void executeActivity(String userId, String activityID) {
+
+		ContentValues cValues = new ContentValues();
+		cValues.put(KEY_USERIDFOREIGN, userId);
+		cValues.put(KEY_ACTIVITYIDFOREIGN, activityID);
+		ourDatabase.insert(DATABASE_TABLE3, null, cValues);
+
+		// create entry in execution table with userid and activityid
+
+	}
+
+	/*
+	 * look for inserted definition name, if already exists return false
+	 */
+	protected boolean checkActivityDefinition(String definition) {
+
+		boolean definitionExist = true;
+
+		// check database_table2 for activity definition
+		String[] columns = new String[] { KEY_DEFINITION};
+		Cursor c = ourDatabase.query(DATABASE_TABLE2, columns, definition,
+				null, null, null, null);
 
 		int iDef = c.getColumnIndex(KEY_DEFINITION);
 
 		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-			Button bt = new Button(context);
-			bt.setText(c.getString(iDef));
-			bt.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
-			bt.layout(l, t, r, b)
-			linerLayout.addView(bt);
-			// result = result + c.getString(iRow) + " " + c.getString(iName) +
-			// " " + c.getString(iHotness) + "\n";
 
+			if (c.getString(iDef).equals("")) {
+				definitionExist = false;
+			}
 		}
 
+		return definitionExist;
 	}
-
 }

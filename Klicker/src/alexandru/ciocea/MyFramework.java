@@ -85,3 +85,16 @@ public class MyFramework extends Activity{
 	
 	
 }
+
+/*
+RelativeLayout.LayoutParams  layoutParam = new RelativeLayout.LayoutParams(LayoutParams.FILL_PARENT,
+		LayoutParams.WRAP_CONTENT);
+if(rowCount < 1){
+	layoutParam.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+	rowCount++;
+}else{
+	layoutParam.addRule(RelativeLayout.BELOW, lastButtonId);
+}
+
+lastButtonId = bt.getId();
+*/
