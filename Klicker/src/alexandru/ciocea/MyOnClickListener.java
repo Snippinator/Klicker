@@ -21,7 +21,7 @@ public class MyOnClickListener implements OnClickListener {
 		//myFramework.createDialogNeutral(c, "TEST", "myOnClickListener");
 		ActivityDB entry = new ActivityDB(context);
 		entry.open();
-		entry.executeActivity(userInfo.getUserId(), id);
+		entry.saveExecution(userInfo.getUserId(), id);
 		entry.close();
 		
 		

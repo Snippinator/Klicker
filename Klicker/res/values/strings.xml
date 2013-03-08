@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World!</string>
+    <!--  strings of lables -->
     <string name="app_name">Klicker</string>
-
+    <string name="login">Anmeldung</string>
+    <string name="register">Registrierung</string>
+    <string name="activityOverview">Aktivitätsübersicht</string>
+    <string name="appInfo">App Beschreibung</string>
+    <string name="allActivities">Alle Aktivitäten</string>
+	<string name="preferences">Einstellungen</string>
+	<string name="activityDetail">Details der Aktivität</string>
+    <string name="createActivity">Aktivität anlegen</string>
+    
 </resources>

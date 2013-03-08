@@ -1,11 +1,8 @@
 package alexandru.ciocea;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.widget.TextView;
 
 public class Splash extends Activity{
 
@@ -13,6 +10,7 @@ public class Splash extends Activity{
 	//SharedPreferences getPrefs;
 	MyFramework myFramework = null;
 	FontClass fontClass = null;
+	TextView tvIntro;
 		
 	
 	@Override
@@ -61,6 +59,10 @@ public class Splash extends Activity{
 		
 		fontClass= new FontClass();
 		myFramework = new MyFramework();
+		
+		tvIntro = (TextView) findViewById(R.id.tvSplash);
+		fontClass.setFont(tvIntro);
+		
 		
 	}
 

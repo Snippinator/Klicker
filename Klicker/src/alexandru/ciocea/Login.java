@@ -16,7 +16,6 @@ public class Login extends Activity implements OnClickListener{
 	
 	Button login, register;
 	CheckBox saveData;
-	DatabaseCalls dbCalls;
 	EditText username, password;
 	FontClass fontClass = null;
 	MyFramework myFramework = null;
