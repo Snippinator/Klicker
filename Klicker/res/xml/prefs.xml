@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen 
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+  
+    <CheckBoxPreference
+        android:title="Erinnerungsfunktion"
+        android:defaultValue="false"
+        android:key="cbPrefsRemind"
+        android:summary="Soll diese Funktion aktiviert werden? NOCH NICHT VERFÜGBAR" />
+    
+    <ListPreference 
+        android:title="Schriften"
+        android:key="list"
+        android:summary="Auswahl der Schriftart für die App"
+        android:entries="@array/fontList"
+        android:entryValues="@array/fontValues" />
+    
+    
+</PreferenceScreen>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array 
+        name="fontList">
+        
+        <item>Standart</item>
+        <item>A Drip</item>
+        <item>Beware</item>
+        <item>Love Of Thunder</item>
+        <item>Milit</item>
+        <item>My Pager</item>
+    </string-array>
+    
+    <string-array 
+        name="fontValues">
+        
+        <item>default</item>
+        <item>aDrip.ttf</item>
+        <item>beware.ttf</item>
+        <item>loveOfThunder.ttf</item>
+        <item>milit.ttf</item>
+        <item>myPager.ttf</item>
+    </string-array>
+    
+</resources>

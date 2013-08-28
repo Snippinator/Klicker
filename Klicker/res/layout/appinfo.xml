@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical" 
+        android:padding="15px">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Klicker"
+                android:textSize="16dp"
+                android:layout_marginBottom="5px" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diese App soll es ermöglichen, Aktivitäten bzw. Tätigkeiten zu speichern und zu protokollieren, wann diese Durchgeführt wurden. Für die Ausführung muss der Nutzer die jeweilige erstellte Schaltfläche betätigen und keine weitere Daten eingeben.  Hiermit soll ermöglicht werden über längere Zeiträume zu erkennen wie regelmäßig eine Tätigkeit ausgeführt wurde und ebenfalls eine Übersicht zu bekommen welche Tätigkeiten mehr oder weniger ausgeführt werden."
+                android:textSize="12dp" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aktivitäten anlegen"
+                android:textSize="14dp"
+                android:layout_marginBottom="5px"
+                android:layout_marginTop="10px" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Um eine neue Aktivität anzulegen, betätiten Sie die Schaltfläche 'Aktivität anlegen'. Um eine Aktivität erfolgreich anzulegen, muss die 'Definition' und die 'Dauer' angegeben werden. Im Feld 'Einheiten' kann ein Wert eingegeben werden, falls die Aktvitität aus mehreren Einheiten besteht."
+                android:textSize="12dp" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aktivitäten ausführen"
+                android:textSize="14dp"
+                android:layout_marginBottom="5px"
+                android:layout_marginTop="10px" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wird eine Aktivität ausgeführt, so kann die App gestartet werden und durch Betätigen der entsprechenden Schaltfläche im Anfangsbildschirm, das aktuelle Datum und die Zeit gespeichert werden. Tätigkeiten können immer nur einmal gedrückt werden, bis die angegebene Dauer verstrichen ist. "
+                android:textSize="12dp" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Details der Aktivitäten"
+                android:textSize="14dp"
+                android:layout_marginBottom="5px"
+                android:layout_marginTop="10px" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Um Details zu einzelnen Aktivitäten einsehen zu können, als auch die Ausführungen angezeigt zu bekommen muss über das Menü der Bereich 'Alle Aktivitäten' aufgerufen werden. In der folgenden Liste kann die jeweilige Aktivität ausgewählt werden."
+                android:textSize="12dp" />
+            
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

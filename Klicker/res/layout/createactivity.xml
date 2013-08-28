@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00CC88"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/etCreateActDefinition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Definition" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/etCreateActDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Dauer"
+            android:inputType="number" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/etCreateActSubUnits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Einheiten"
+            android:inputType="number" >
+        </EditText>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btCreateActBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zurück" />
+
+            <Button
+                android:id="@+id/btCreateActSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Speichern" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
