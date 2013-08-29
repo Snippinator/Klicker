@@ -34,6 +34,10 @@ you do specific activities and even remember you to do
 the one you didn't increment so that the user can achieve
 continuity in each activities she/he must accomplish.
 
+Using this library?
+==================
+Please let me know! I'll be glad to link your project here.
+
 MIT License
 ==================
 	Copyright (c) 2013 Andrea Mazzini. All rights reserved.
